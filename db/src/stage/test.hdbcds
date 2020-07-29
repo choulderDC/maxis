@@ -1,0 +1,10 @@
+namespace maxis.db.stage;
+
+context test {
+
+    /*@@layout{"layoutInfo":{"x":-459,"y":-205.5}}*/
+    entity test {
+        key key  : String(10);
+            data : String(10);
+    };
+};
