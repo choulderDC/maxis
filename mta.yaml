@@ -13,8 +13,10 @@ modules:
 resources:
  - name: hdi_db
    parameters:
+      service-name: maxis-single-schema
       config:
          schema: maxis
+         makeUniqueName: false
    properties:
       hdi-container-name: ${service-name}
    type: com.sap.xs.hdi-container
