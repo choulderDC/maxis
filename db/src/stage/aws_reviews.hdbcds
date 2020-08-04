@@ -1,0 +1,26 @@
+namespace maxis.db.stage;
+
+context aws_reviews {
+
+    /*@@layout{"layoutInfo":{"x":-560,"y":-75.5}}*/
+    entity reviews {
+        market      : String(2);
+        customer    : Integer;
+        review      : String(20);
+        product_id  : String(20);
+        parent      : String(20);
+        title       : String(500);
+        category    : String(40);
+        stars       : Double;
+        help_votes  : Double;
+        total_votes : Double;
+        vine        : String(1);
+        verified    : String(1);
+        headline    : String(600);
+        review_text : LargeString;
+        date        : LocalDate;
+    }
+    technical configuration {
+        partition by Hash (market) partitions 10;
+    };
+};
