@@ -1,0 +1,48 @@
+namespace maxis.db.target;
+
+@OData.publish : true
+context maxis {
+
+    /*@@layout{"layoutInfo":{}}*/
+    entity scenario1 {
+        key market         : String(2)  not null;
+        key category       : String(40) not null;
+        key calmonth       : String(6)  not null;
+            month          : String(2);
+            year           : String(4);
+            stars          : Double;
+            help_votes     : Double;
+            total_votes    : Double;
+            average_rating : Double;
+    };
+
+    entity scenario2 {
+        key market         : String(2)  not null;
+        key category       : String(40) not null;
+        key calmonth       : String(6)  not null;
+        key parent         : String(20) not null;
+            month          : String(2);
+            year           : String(4);
+            stars          : Double;
+            help_votes     : Double;
+            total_votes    : Double;
+            average_rating : Double;
+    }
+    technical configuration {
+        partition by Range (market) (partition values = 0, partition 01 <= values < 02, partition 02 <= values < 03, partition 03 <= values < 04, partition 04 <= values < 05, partition 05 <= values < 06, partition 06 <= values < 07, partition 07 <= values < 08, partition 08 <= values < 09, partition 09 <= values < 10, partition 10 <= values < 11, partition 11 <= values < 12, partition 12 <= values < 13, partition others);
+    };
+
+    entity scenario3 {
+        key market         : String(2)  not null;
+        key category       : String(40) not null;
+        key calmonth       : String(6)  not null;
+        key product_id     : String(20) not null;
+            title          : String(500);
+            month          : String(2);
+            year           : String(4);
+            stars          : Double;
+            help_votes     : Double;
+            total_votes    : Double;
+            average_rating : Double;
+    };
+};

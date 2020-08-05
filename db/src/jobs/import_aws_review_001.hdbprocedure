@@ -1,0 +1,14 @@
+PROCEDURE "maxis.db.jobs::import_aws_review_001"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+   
+BEGIN
+   /*************************************
+       Write your procedure logic 
+   *************************************/
+exec 'IMPORT FROM CONTROL FILE ' || '''/home/ec2-user/aws_data/import_01.ctl''' || ' WITH THREADS 24 BATCH 250000';
+
+
+   
+END
