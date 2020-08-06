@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="maxis.db.model::scenario1" applyPrivilegeType="NONE" dataCategory="CUBE" schemaVersion="3.0" outputViewType="Aggregation" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="Scenario 1"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="maxis.db.target::maxis.scenario1">
+    <resourceUri>maxis.db.target::maxis.scenario1</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews/>
+<logicalModel id="maxis.db.target::maxis.scenario1">
+  <attributes>
+    <attribute id="market" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="market"/>
+      <keyMapping columnObjectName="maxis.scenario1" columnName="market"/>
+    </attribute>
+    <attribute id="category" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="category"/>
+      <keyMapping columnObjectName="maxis.scenario1" columnName="category"/>
+    </attribute>
+    <attribute id="calmonth" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="cal. month"/>
+      <keyMapping columnObjectName="maxis.scenario1" columnName="calmonth"/>
+    </attribute>
+    <attribute id="month" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="month"/>
+      <keyMapping columnObjectName="maxis.scenario1" columnName="month"/>
+    </attribute>
+    <attribute id="year" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="year"/>
+      <keyMapping columnObjectName="maxis.scenario1" columnName="year"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures>
+    <measure id="stars" order="6" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="stars"/>
+      <measureMapping columnObjectName="maxis.scenario1" columnName="stars"/>
+    </measure>
+    <measure id="help_votes" order="7" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="help votes"/>
+      <measureMapping columnObjectName="maxis.scenario1" columnName="help_votes"/>
+    </measure>
+    <measure id="total_votes" order="8" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="total votes"/>
+      <measureMapping columnObjectName="maxis.scenario1" columnName="total_votes"/>
+    </measure>
+    <measure id="average_rating" hidden="true" order="9" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="average rating"/>
+      <measureMapping columnObjectName="maxis.scenario1" columnName="average_rating"/>
+    </measure>
+  
+    <measure id="review_cnt" order="11" aggregationType="sum" measureType="simple">
+      <descriptions defaultDescription="review_cnt"/>
+      <measureMapping columnObjectName="maxis.scenario1" columnName="review_cnt"/>
+    </measure>
+  </baseMeasures>
+  <calculatedMeasures>
+    <measure id="avg_rating" order="10" aggregationType="sum" measureType="simple" datatype="DOUBLE" expressionLanguage="COLUMN_ENGINE">
+      <descriptions defaultDescription="Average Rating"/>
+      <formula>&quot;stars&quot; / &quot;review_cnt&quot;</formula>
+      
+      </measure>
+  </calculatedMeasures>
+  <restrictedMeasures/>
+  <localDimensions/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
