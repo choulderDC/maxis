@@ -1,0 +1,12 @@
+namespace maxis.db.stage;
+
+context abc_input {
+
+    /*@@layout{"layoutInfo":{"x":-509,"y":-193.5}}*/
+    entity abc {
+        NAME       : String(30);
+        INTARGS    : Integer;
+        DOUBLEARGS : Double;
+        STRINGARGS : String(30);
+    };
+};

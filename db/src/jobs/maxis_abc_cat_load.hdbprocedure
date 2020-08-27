@@ -1,0 +1,42 @@
+PROCEDURE "maxis.db.jobs::maxis_abc_cat_load"( )
+   LANGUAGE SQLSCRIPT
+   SQL SECURITY INVOKER
+   AS
+
+   -- scalar variables
+	vCnt INTEGER;
+
+BEGIN
+   /**************************************************/
+   /* Written by Chris - Deloitte Consulting 
+   /* Date 08-08-2020
+   /**************************************************/
+   /* PURPOSE:
+   /* to show off a looping Flowgraph with variables
+   /**************************************************/
+
+ DECLARE vCat VARCHAR(200);
+ DECLARE i INTEGER; 
+ 
+--Get distinct AWS Categoory and number of category
+  aws_cat =   SELECT DISTINCT( "category" ) FROM "maxis.db.stage::aws_reviews.reviews";
+  SELECT COUNT ( DISTINCT( "category" ) ) INTO vCnt FROM "maxis.db.stage::aws_reviews.reviews";
+   
+   
+ FOR i IN 0 .. :vCnt-1 DO  
+ 
+--Configurtion Values stored in Variables  
+    SELECT 	"category"
+    INTO vCat
+    FROM :aws_cat
+    LIMIT 1 OFFSET :i; -- notice OFFSET indexes at 0, not 1   
+   
+--Execute Flowgraph and Wait for Return
+-- Do this for every Ctegory (circa 40)
+ call "maxis.db.flowgraph::maxis_abc_analysis_by_category_SP"(  '''''' ||  vCAT  || ''''''  );   
+
+
+END FOR;
+
+
+END

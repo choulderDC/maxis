@@ -1,0 +1,1 @@
+VIRTUAL TABLE "maxis.db.virtual::VT_abc_by_category" AT "ExcelAdapter"."abc_input_by_category.xlsx/abc"

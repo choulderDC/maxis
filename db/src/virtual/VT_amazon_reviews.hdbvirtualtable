@@ -1,0 +1,31 @@
+VIRTUAL TABLE "maxis.db.virtual::VT_amazon_reviews" AT "FileAdapter"."<NULL>"."<NULL>"."amazon_reviews"
+REMOTE PROPERTY 'dataprovisioning_parameters'='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Parameters>
+<Parameter name="FORMAT">CSV</Parameter>
+<Parameter name="FORCE_FILENAME_PATTERN">amazon_reviews_us%.tsv</Parameter>
+<Parameter name="PARTITIONS">10</Parameter>
+<Parameter name="CODEPAGE">utf-8</Parameter>
+<Parameter name="LOCALE">en_US</Parameter>
+<Parameter name="SKIP_HEADER_LINES">1</Parameter>
+<Parameter name="ROW_DELIMITER">\n</Parameter>
+<Parameter name="QUOTED_TEXT_CONTAIN_ROW_DELIMITER">false</Parameter>
+<Parameter name="COLUMN_DELIMITER">\d09</Parameter>
+<Parameter name="EXPONENTIAL">E</Parameter>
+<Parameter name="DATEFORMAT">yyyy-MM-dd</Parameter>
+<Parameter name="LENIENT">false</Parameter>
+<Parameter name="COLUMN">market;NVARCHAR(2);</Parameter>
+<Parameter name="COLUMN">customer;INTEGER;</Parameter>
+<Parameter name="COLUMN">review;NVARCHAR(20);</Parameter>
+<Parameter name="COLUMN">product_id;NVARCHAR(20);</Parameter>
+<Parameter name="COLUMN">parent;NVARCHAR(20);</Parameter>
+<Parameter name="COLUMN">title;NVARCHAR(500);</Parameter>
+<Parameter name="COLUMN">category;NVARCHAR(40);</Parameter>
+<Parameter name="COLUMN">stars;DOUBLE;</Parameter>
+<Parameter name="COLUMN">help_votes;DOUBLE;</Parameter>
+<Parameter name="COLUMN">total_votes;DOUBLE;</Parameter>
+<Parameter name="COLUMN">vine;NVARCHAR(1);</Parameter>
+<Parameter name="COLUMN">verified;NVARCHAR(1);</Parameter>
+<Parameter name="COLUMN">headline;NVARCHAR(600);</Parameter>
+<Parameter name="COLUMN">review_text;NCLOB(200);</Parameter>
+<Parameter name="COLUMN">date;DATE;</Parameter>
+</Parameters>';
